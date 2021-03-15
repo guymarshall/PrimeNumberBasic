@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 bool isPrimeNumber(int number)
 {
-    for (int i = 2; i < number; i++)
+    for (int i = 2; i < ceil(sqrt(number)); i++)
     {
         if (number % i == 0)
         {
