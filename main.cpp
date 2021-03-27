@@ -4,7 +4,13 @@
 
 bool isPrimeNumber(int number)
 {
-    for (int i = 2; i < ceil(sqrt(number)); i++)
+	int ceilingRoot = (int)ceil(sqrt(number));
+	if (ceilingRoot >= number)
+	{
+		ceilingRoot = number - 1;
+	}
+	
+    for (int i = 2; i <= ceilingRoot; i++)
     {
         if (number % i == 0)
         {
@@ -22,7 +28,7 @@ int main()
 
     std::ofstream PrimeNumbersFile("Prime_numbers.txt");
 
-    for (int i = 1; i <= userInput; i++)
+    for (int i = 2; i <= userInput; i++)
     {
         bool isPrime = isPrimeNumber(i);
         if (isPrime)
